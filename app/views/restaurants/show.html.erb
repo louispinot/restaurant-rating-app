@@ -10,17 +10,19 @@
 <h3> Reviews</h3>
 <table>
 
-<% @restaurant.comments.each do |comment| %>
-  <tr>
-    <td>
-      <%= comment.body %>
-    </td>
-  </tr>
-<% end %>
-</table>
+<h3>Reviews for this restaurant</h3>
+<div data-pjax-container>
+  <% @restaurant.comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= comment.body %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
 
-
-<h3>Add a review for this restaurant</h3>
+<h3>Add a review</h3>
 
 <%= form_for @restaurant.comments.build do |form| %>
   <%= form.hidden_field :restaurant_id %>
@@ -28,7 +30,7 @@
     <%= form.label :body, "Review" %>
     <%= form.text_area :body %>
   </div>
-  <%= form.submit "submit Review" %>
+  <%= form.submit "submit Review", class: 'new-review' %>
 <% end %>
 <br>
 <%= link_to "back", restaurants_path %>
