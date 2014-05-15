@@ -1,2 +1,9 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"><%= @restaurant.name %></div>
+     <div class="col-sm-4"><%= @restaurant.address %></div>
+  </div>
+</div>
+
+<%= link_to "back", restaurants_path %>
+<%= link_to "Edit the restaurant", edit_restaurant_path(@restaurant)%>

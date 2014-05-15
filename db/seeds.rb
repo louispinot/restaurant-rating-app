@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-20.times do {
-  address= "#{Faker::Address.street_address}, #{Faker::Address.city} #{Faker::Address.zip_code}"
+20.times do
+  address = "#{Faker::Address.street_address}, #{Faker::Address.city} #{Faker::Address.zip_code}"
   Restaurant.create(name: Faker::Company.name, address: address)
-}
+end

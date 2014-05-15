@@ -1,8 +1,13 @@
 
 <table>
-<%= @restaurants.each do |restaurant| %>
+<% @restaurants.each do |restaurant| %>
   <tr>
-    <td><%= restaurant.name %></td>
+    <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
     <td><%= restaurant.address %></td>
+    <td><%= link_to "Edit the restaurant", edit_restaurant_path(restaurant)%>
+    </td>
+    <td><%= link_to "Delete the restaurant", restaurant_path(restaurant), method: "delete", data: {confirm: "Etes vous sûr?"} %>
+    </td>
   </tr>
+<% end %>
 </table>

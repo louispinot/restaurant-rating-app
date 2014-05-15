@@ -1,0 +1,13 @@
+<%= form_for (@restaurant) do |f| %>
+<div>
+  <%= f.label :name, "Name of the restaurant" %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :name, "Address" %>
+  <%= f.text_area :address %>
+</div>
+<div>
+  <%= f.submit %>
+</div>
+<% end %>
