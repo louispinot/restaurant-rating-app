@@ -1,3 +1,5 @@
+<h1>Restaurant</h1>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-3"><%= @restaurant.name %></div>
@@ -5,5 +7,30 @@
   </div>
 </div>
 
+<h3> Reviews</h3>
+<table>
+
+<% @restaurant.comments.each do |comment| %>
+  <tr>
+    <td>
+      <%= comment.body %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+
+<h3>Add a review for this restaurant</h3>
+
+<%= form_for @restaurant.comments.build do |form| %>
+  <%= form.hidden_field :restaurant_id %>
+  <div>
+    <%= form.label :body, "Review" %>
+    <%= form.text_area :body %>
+  </div>
+  <%= form.submit "submit Review" %>
+<% end %>
+<br>
 <%= link_to "back", restaurants_path %>
+<br>
 <%= link_to "Edit the restaurant", edit_restaurant_path(@restaurant)%>
